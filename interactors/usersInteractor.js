@@ -12,14 +12,26 @@ const getUserByIdIteractor = async (id) => {
 };
 
 const createUser = async (newUser) => {
-    const createdUser = await axios.post(interactorConfig.BASE_URL + interactorConfig.USERS_ROUTE, newUser);
+    console.log(newUser);
+    let config = {
+        headers: {
+            'content-type': 'application/json',
+        },
+    };
+    const createdUser = await axios.post(interactorConfig.BASE_URL + interactorConfig.USERS_ROUTE, newUser, config);
     return createdUser;
 };
 
 const updateUser = async (id, updatedUserFields) => {
+    let config = {
+        headers: {
+            'content-type': 'application/json',
+        },
+    };
     const updatedUser = await axios.put(
         interactorConfig.BASE_URL + interactorConfig.USERS_ROUTE + `/${id}`,
-        updatedUserFields
+        updatedUserFields,
+        config
     );
     return updatedUser;
 };

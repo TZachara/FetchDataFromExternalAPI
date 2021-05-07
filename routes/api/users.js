@@ -24,23 +24,22 @@ router.post(
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
-        const intetactorRequest = await usersInteractor.createUser();
+        const intetactorRequest = await usersInteractor.createUser(req.body);
         res.json(intetactorRequest.data);
     }
 );
 
 router.put(
     '/:id',
-    oneOf(
-        [body('name').not().isEmpty(), body('username').not().isEmpty(), body('email').isEmail().normalizeEmail()],
-        'At least one filed must be updated'
-    ),
+    body('name').not().isEmpty(),
+    body('username').not().isEmpty(),
+    body('email').isEmail().normalizeEmail(),
     async (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
-        const intetactorRequest = await usersInteractor.updateUser(req.params.id);
+        const intetactorRequest = await usersInteractor.updateUser(req.params.id, req.body);
         res.json(intetactorRequest.data);
     }
 );
