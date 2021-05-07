@@ -34,4 +34,10 @@ After
 npm install
 ```
 
-npm run test will run Jest test process.
+is completed
+
+```npm
+npm run test
+```
+
+will run Jest test process.
