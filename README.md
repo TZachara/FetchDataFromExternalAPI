@@ -16,7 +16,7 @@ To Lunch App
 node index.js
 ```
 
-# Testing
+# Testing with Postman
 
 In root directory there is a file
 
@@ -25,3 +25,13 @@ Node with external calls.postman_collection.json
 ```
 
 This is Postman file collection that contains all routes for testing.
+
+# Unit Tests
+
+After
+
+```npm
+npm install
+```
+
+npm run test will run Jest test process.

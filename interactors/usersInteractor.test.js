@@ -59,7 +59,7 @@ describe('Update User', () => {
     });
     test('if header contains application/json', async () => {
         const res = await usersInteractor.updateUser(id, user);
-        expect(res.headers['Content-Type']).toEqual(expect.stringContaining('application/json'));
+        expect(res.headers['content-type']).toEqual(expect.stringContaining('application/json'));
     });
     test('if returns id', async () => {
         const res = await usersInteractor.updateUser(id, user);
